@@ -34,7 +34,9 @@ process.on('unhandledRejection', (reason, promise) => {
   console.error('🚨 UNHANDLED REJECTION at:', promise, 'reason:', reason);
 });
 
-app.use(cors());
+app.use(cors({
+  origin: "https://scheduler-app-beryl.vercel.app/",
+}));
 app.use(express.json());
 
 // Routes
