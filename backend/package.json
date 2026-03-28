@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "prisma generate",
     "start": "node index.js",
     "prisma:seed": "prisma db seed",
     "test": "echo \"Error: no test specified\" && exit 1"
