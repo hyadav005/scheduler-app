@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #0070f3;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+:root {
+  --color-brand-blue: #0070f3;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Base resets and compatibility with Tailwind */
+@layer base {
+  :root {
+    --color-brand-blue: #0070f3;
+    --bg-color: #f3f4f6;
+    --surface-color: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --border-color: #e5e7eb;
+    --primary-action: #000000;
+    --primary-on-action: #ffffff;
+    --hover-bg: #f9fafb;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-pill: 999px;
+    --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom animation support for Landing Page IntersectionObserver */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px) scale(0.94);
+    transition: 
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Optional: Add staggered delays for common grid layouts */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+
+/* Custom scrollbar for better aesthetics across components */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}

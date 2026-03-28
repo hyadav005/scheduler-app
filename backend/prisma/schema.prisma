@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model EventType {
+  id          Int          @id @default(autoincrement())
+  title       String
+  description String?
+  duration    Int
+  slug        String       @unique
+  timezone    String       @default("UTC")
+  createdAt   DateTime     @default(now())
+
+  availabilities  Availability[]
+  bookings        Booking[]
+  dateOverrides   DateOverride[]
+  questions       BookingQuestion[]
+}
+
+model Availability {
+  id        Int      @id @default(autoincrement())
+  day       String   // Monday, Tuesday etc
+  startTime String   // "09:00"
+  endTime   String   // "17:00"
+
+  eventId   Int
+  event     EventType @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  date      DateTime
+  time      String
+  timezone  String   @default("UTC")
+  
+  // Custom answers stored as JSON
+  answers   Json?
+
+  eventId   Int
+  event     EventType @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}
+
+model BookingQuestion {
+  id          Int       @id @default(autoincrement())
+  label       String
+  type        String    // "text", "textarea", "select", etc.
+  placeholder String?
+  required    Boolean   @default(true)
+  
+  eventId     Int
+  event       EventType @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model DateOverride {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  isBlocked Boolean  @default(false)
+  startTime String?  // null if blocked
+  endTime   String?  // null if blocked
+
+  eventId   Int
+  event     EventType @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}

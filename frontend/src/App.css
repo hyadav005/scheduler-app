@@ -1,0 +1,216 @@
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.time-grid-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.time-grid-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.time-grid-scroll::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 10px;
+}
+
+.time-grid-scroll::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+}
+
+/* Features Section Layout */
+.features-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.features-step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 60px;
+}
+
+.step-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.step-number {
+    background: #f3f4f6;
+    color: #4b5563;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #111;
+}
+
+.step-content p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+/* Step Visuals */
+.step-visual {
+    flex: 1;
+    min-height: 200px;
+    background: #fafafa;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 01. Orbit Visual */
+.visual-orbit {
+    background: #fff;
+    border: 1px solid #f3f4f6;
+}
+.orbit-center {
+    width: 80px;
+    height: 80px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+/* 02. Availability Visual */
+.visual-availability {
+    padding: 20px;
+    flex-direction: column;
+    gap: 12px;
+}
+.avail-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+.avail-row.active {
+    opacity: 1;
+    border-color: #000;
+}
+.toggle {
+    width: 32px;
+    height: 18px;
+    border-radius: 10px;
+    background: #e5e7eb;
+}
+.toggle.on { background: #000; }
+
+/* 03. Video Meet Visual */
+.visual-meet {
+    padding: 10px;
+}
+.meet-browser {
+    width: 100%;
+    height: 160px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.browser-dots { display: flex; gap: 4px; margin-bottom: 10px; }
+.browser-dots span { width: 6px; height: 6px; border-radius: 50%; background: #eee; }
+.meet-video-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.video-slot { background: #f3f4f6; border-radius: 4px; }
+.meet-controls { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+.ctrl-btn { width: 20px; height: 20px; border-radius: 50%; background: #eee; }
+.ctrl-btn.hangup { background: #fee2e2; }
+
+/* Bento Grid Styles */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.bento-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    min-height: 320px;
+}
+
+.bento-card.large {
+    grid-column: span 2;
+}
+
+.card-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.card-graphic {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.grid-bg { background: radial-gradient(circle, #eee 1px, transparent 1px); background-size: 20px 20px; }
+.floating-bubble { background: #000; color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; }
+.notification-pill { background: #fff; border: 1px solid #eee; padding: 10px 15px; border-radius: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.avatars { display: flex; align-items: center; justify-content: center; height: 100%; }
+.avatar { width: 45px; height: 45px; border-radius: 50%; border: 3px solid #fff; }
