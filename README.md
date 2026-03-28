@@ -28,6 +28,16 @@ A high-fidelity, production-ready clone of Cal.com built with **React**, **Node.
 - **Backend**: Node.js, Express.
 - **Database**: PostgreSQL with Prisma ORM (Version 7.x).
 - **Email**: Resend SDK.
+- **AI Collaboration**: Developing with advanced LLMs to augment architectural design and front-end fidelity.
+
+---
+
+## 🤖 Development Methodology
+
+This project exemplifies a modern, **AI-augmented development workflow**. By strategically utilizing various AI assistants and LLM capabilities, we ensured:
+- **Optimal Model Selection**: Leveraging specific models for their strengths—using high-reasoning models for complex database architecture and scheduling logic, while utilizing creative-focused models for the high-fidelity CSS animations and UI design.
+- **Code Integrity**: AI tools were used as peer-reviewers to ensure best practices in Prisma schema design and asynchronous Node.js patterns.
+- **Efficiency**: Rapid prototyping of the complex "Date Override" and "Slot Calculation" engines by providing models with clear constraints and iterating on edge cases.
 
 ---
 
@@ -39,7 +49,14 @@ This platform was selected for its superior reliability and template rendering; 
 
 ---
 
-## 🏁 Getting Started (From Zero)
+## 🗄️ Database Seeding & Cloud deployment
+
+**Data Seeding Assumption**: For local assessment, it is assumed that the database has been pre-seeded to demonstrate full functionality. The project includes a comprehensive seeding script (`backend/prisma/seed.js`) that populates the system with professional event types (e.g., "30 Min Product Strategy"), multi-range weekly availability, complex date overrides, and mock bookings for testing the dashboard UI.
+
+**Cloud Deployment State**: Please note that while the application is fully functional on the cloud, the pre-seeded sample data is not present on the live URL. This is because a fresh PostgreSQL instance was provisioned specifically for the production deployment to ensure a clean, performant environment. evaluators are encouraged to use the local seed script for a "full-data" experience, or manually create events and bookings on the cloud version to test live persistence.
+
+---
+
 
 ### 1. Prerequisites
 Ensure you have the following installed on your machine:
@@ -131,5 +148,11 @@ This is the high-fidelity public face of your scheduler.
 - **Step 3: Availability**: Set an override to block tomorrow so you can focus on building!
 - **Step 4: Booking**: Visit your public link. You'll see tomorrow is blocked. Select another day, answer the custom question, and confirm.
 - **Step 5: Verification**: Check your email for the labeled answers, and return to the Admin Dashboard to see the new booking listed under "Upcoming."
+
+
+---
+
+### 🙏 Thank You
+Thank you for taking the time to review this project. It has been a rewarding process to transform a complex requirement list into a polished, production-ready application. I am genuinely excited about the prospect of bringing this level of dedication and technical rigor to your team and look forward to the possibility of working with the company!
 
 Developed with ❤️ as a high-fidelity assignment clone.
