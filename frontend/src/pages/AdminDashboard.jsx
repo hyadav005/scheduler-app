@@ -119,9 +119,10 @@ const AdminDashboard = () => {
       });
     } catch (error) {
       console.error('Failed to create event:', error);
+      const errorMsg = error.response?.data?.error || error.message || 'Failed to create event. Please ensure the slug is unique.';
       showModal({ 
         title: 'Error', 
-        message: error.response?.data?.error || 'Failed to create event. Please ensure all fields are filled correctly and the slug is unique.',
+        message: errorMsg,
         type: 'danger'
       });
     } finally {
@@ -277,7 +278,8 @@ const AdminDashboard = () => {
       showModal({ title: 'Success', message: 'Event updated successfully!', type: 'success' });
     } catch (error) {
       console.error('Failed to update event:', error);
-      showModal({ title: 'Error', message: error.response?.data?.error || 'Failed to update event', type: 'danger' });
+      const errorMsg = error.response?.data?.error || error.message || 'Failed to update event';
+      showModal({ title: 'Error', message: errorMsg, type: 'danger' });
     } finally {
       setCreating(false);
     }

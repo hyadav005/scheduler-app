@@ -46,11 +46,16 @@ app.post("/events", async (req, res) => {
   try {
     const { title, description, duration, slug, timezone } = req.body;
 
+    // Safety checks for necessary fields
+    if (!title || !slug) {
+      return res.status(400).json({ error: "Title and URL Slug are required." });
+    }
+
     const event = await prisma.eventType.create({
       data: {
         title,
-        description,
-        duration: parseInt(duration), // Ensure it's stored as Int
+        description: description || '',
+        duration: parseInt(duration) || 60, // Default to 60 if NaN or missing
         slug: slug.trim(), // Server-side trim for safety
         timezone: timezone || 'UTC',
       },
@@ -62,7 +67,8 @@ app.post("/events", async (req, res) => {
     if (error.code === "P2002" && error.meta && error.meta.target.includes("slug")) {
       return res.status(400).json({ error: "The slug must be unique. Please choose a different slug." });
     }
-    res.status(500).json({ error: "Something went wrong" });
+    // Updated to show the actual error message for better debugging
+    res.status(500).json({ error: `Backend Error: ${error.message}` });
   }
 }); 
 
@@ -106,16 +112,20 @@ app.put("/events/:id", async (req, res) => {
     const { id } = req.params;
     const { title, description, duration, slug, timezone } = req.body;
 
+    if (!title || !slug) {
+      return res.status(400).json({ error: "Title and Slug are required." });
+    }
+
     const updatedEvent = await prisma.eventType.update({
       where: {
         id: Number(id),
       },
       data: {
         title,
-        description,
-        duration: parseInt(duration),
+        description: description || '',
+        duration: parseInt(duration) || 60,
         slug: slug.trim(),
-        timezone,
+        timezone: timezone || 'UTC',
       },
     });
 
