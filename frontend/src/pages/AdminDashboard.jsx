@@ -101,8 +101,14 @@ const AdminDashboard = () => {
     e.preventDefault();
     setCreating(true);
 
+    const payload = {
+      ...formData,
+      slug: formData.slug.trim(), // Trim leading/trailing spaces
+      duration: parseInt(formData.duration) // Ensure duration is a number
+    };
+
     try {
-       const newEvent = await apiService.createEvent(formData);
+       const newEvent = await apiService.createEvent(payload);
       setEvents(prev => [...prev, newEvent]);
       setFormData({ title: '', description: '', duration: 60, slug: '', timezone: 'Asia/Kolkata' });
       setShowCreateForm(false);
@@ -256,8 +262,14 @@ const AdminDashboard = () => {
     if (!editingEvent) return;
 
     setCreating(true);
+    const payload = {
+      ...formData,
+      slug: formData.slug.trim(), // Trim leading/trailing spaces
+      duration: parseInt(formData.duration) // Ensure duration is a number
+    };
+
     try {
-      const updatedEvent = await apiService.updateEvent(editingEvent.id, formData);
+      const updatedEvent = await apiService.updateEvent(editingEvent.id, payload);
        setEvents(prev => prev.map(ev => ev.id === editingEvent.id ? updatedEvent : ev));
       setFormData({ title: '', description: '', duration: 60, slug: '', timezone: 'Asia/Kolkata' });
       setShowCreateForm(false);

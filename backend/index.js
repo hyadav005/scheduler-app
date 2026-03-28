@@ -34,9 +34,7 @@ process.on('unhandledRejection', (reason, promise) => {
   console.error('🚨 UNHANDLED REJECTION at:', promise, 'reason:', reason);
 });
 
-app.use(cors({
-  origin: "https://scheduler-app-beryl.vercel.app/"
-}));
+app.use(cors());
 app.use(express.json());
 
 // Routes
@@ -52,8 +50,8 @@ app.post("/events", async (req, res) => {
       data: {
         title,
         description,
-        duration,
-        slug,
+        duration: parseInt(duration), // Ensure it's stored as Int
+        slug: slug.trim(), // Server-side trim for safety
         timezone: timezone || 'UTC',
       },
     });
@@ -115,8 +113,8 @@ app.put("/events/:id", async (req, res) => {
       data: {
         title,
         description,
-        duration,
-        slug,
+        duration: parseInt(duration),
+        slug: slug.trim(),
         timezone,
       },
     });
