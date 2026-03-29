@@ -55,6 +55,8 @@ This platform was selected for its superior reliability and template rendering; 
 
 **Cloud Deployment State**: Please note that while the application is fully functional on the cloud, the pre-seeded sample data is not present on the live URL. This is because a fresh PostgreSQL instance was provisioned specifically for the production deployment to ensure a clean, performant environment. evaluators are encouraged to use the local seed script for a "full-data" experience, or manually create events and bookings on the cloud version to test live persistence.
 
+**Note on Rendering Performance**: Please be advised that data rendering speeds may experience minor latencies when interacting with the live cloud-hosted database. These variations are primarily due to the network overhead and cold-start characteristics inherent in cloud infrastructure. While the application logic and frontend animations are fully optimized for performance, the local development environment (connected to a local PostgreSQL instance) will offer the most responsive experience.
+
 ---
 
 
