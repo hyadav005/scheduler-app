@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://scheduler-app-2-jrzt.onrender.com",
+  baseURL: "https://scheduler-app-2-oqpw.onrender.com",
 });
 
 export const apiService = {
