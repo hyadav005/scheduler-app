@@ -155,6 +155,6 @@ This is the high-fidelity public face of your scheduler.
 ---
 
 ### 🙏 Thank You
-Thank you for taking the time to review this project. It has been a rewarding process to transform a complex requirement list into a polished, production-ready application. I am genuinely excited about the prospect of bringing this level of dedication and technical rigor to your team and look forward to the possibility of working with the company!
+Thank you for taking the time to review this project. 
 
 Developed with ❤️ as a high-fidelity assignment clone.
